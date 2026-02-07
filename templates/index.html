@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScribbleSum | AI Text Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <nav>
+        <div class="logo">
+            <i class="fas fa-feather-alt"></i>
+            <span>ScribbleSum</span>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active">Summarizer</a>
+            <a href="#" id="train-btn" title="Retrain Model"><i class="fas fa-sync"></i> Train</a>
+        </div>
+    </nav>
+
+    <main>
+        <header>
+            <h1>Effortless Summarization</h1>
+            <p>Transform lengthy text into concise, meaningful insights with our advanced AI model.</p>
+        </header>
+
+        <section class="summarizer-container">
+            <div class="input-pane card">
+                <div class="pane-header">
+                    <span><i class="fas fa-align-left"></i> Source Text</span>
+                    <button id="clear-btn" class="icon-btn" title="Clear Text"><i class="fas fa-trash-alt"></i></button>
+                </div>
+                <textarea id="source-text" placeholder="Paste your article or dialogue here..."></textarea>
+                <div class="pane-footer">
+                    <span id="char-count">0 characters</span>
+                    <button id="summarize-btn" class="primary-btn">
+                        <span>Summarize</span>
+                        <i class="fas fa-magic"></i>
+                        <div class="loader" id="loader"></div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="output-pane card">
+                <div class="pane-header">
+                    <span><i class="fas fa-sparkles"></i> AI Summary</span>
+                    <button id="copy-btn" class="icon-btn" title="Copy to Clipboard"><i class="fas fa-copy"></i></button>
+                </div>
+                <div id="summary-result" class="result-box">
+                    <p class="placeholder-text">Your summary will appear here...</p>
+                </div>
+                <div class="pane-footer">
+                    <div class="status-indicator" id="status">
+                        <i class="fas fa-check-circle"></i> Ready
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ScribbleSum AI Project. Built with Flask & Transformers.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
